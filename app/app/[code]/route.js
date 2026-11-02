@@ -13,14 +13,8 @@ const { data, error } = await supabase
   .single();
 
 if (error || !data) {
-  return new Response("Lien introuvable.", {
-    status: 404
-  });
+  return new Response("Lien introuvable.", { status: 404 });
 }
 
 return Response.redirect(data.original_url, 302);
-} catch (error) { console.error(error);
-return new Response("Une erreur est survenue.", {
-  status: 500
-});
-} }
+} catch (error) { console.error(error); return new Response("Une erreur est survenue.", { status: 500 }); } }
